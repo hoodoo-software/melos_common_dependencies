@@ -24,7 +24,7 @@ Install the package:
 dart pub get
 ```
 
-Create a `melos_common_dependencies.yaml` file with the following structure:
+Create a `common_dependencies.yaml` file with the following structure:
 
 ```yaml
 dirs:

@@ -62,7 +62,7 @@ Future<void> update(
 Future<void> main() async {
   final commonPackagesYamlPath = path.joinAll([
     Directory.current.path,
-    'common_packages.yaml',
+    'common_dependencies.yaml',
   ]);
   final commonPackagesYaml = File(commonPackagesYamlPath);
   final commonPackages =
@@ -70,7 +70,7 @@ Future<void> main() async {
   final dirs = commonPackages.nodes['dirs'];
   if (dirs is! YamlList) {
     throw Exception(
-      'Malformed `common_packages.yaml`: "dirs" should be a YamlList',
+      'Malformed `common_dependencies.yaml`: "dirs" should be a YamlList',
     );
   }
 
@@ -86,7 +86,7 @@ Future<void> main() async {
     final commonDependencies = commonPackages.nodes[target];
     if (commonDependencies is! YamlMap) {
       throw Exception(
-        'Malformed `common_packages.yaml`: $target should be a YamlMap',
+        'Malformed `common_dependencies.yaml`: $target should be a YamlMap',
       );
     }
     await update(commonDependencies, paths, target);
